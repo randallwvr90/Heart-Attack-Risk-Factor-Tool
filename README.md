@@ -1,9 +1,7 @@
-# bootcamp-project-4
-
-# Data Science Bootcamp Machine Learning Project - Team Squirtle
+# Machine Learning Project - Team Squirtle
 
 ## Table of Contents
-* (Project Proposal)[#projectproposal]
+* [Project Proposal](#projectproposal)
 
 ## Project Proposal
 * We will use heart attack risk factor data
