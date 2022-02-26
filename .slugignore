@@ -2,7 +2,5 @@
 /data
 
 # jupyter notebooks
-NN.ipynb
-NN_keras.ipynb
-heart_attack_risk_knn_model.ipynb
-rfc.ipynb
+*.ipynb
+**.ipynb
