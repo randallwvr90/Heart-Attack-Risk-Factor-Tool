@@ -5,3 +5,10 @@
 # mac stuff
 .DS_Store
 **/.DS_Store
+
+# data folder
+/data
+
+# jupyter notebooks
+*.ipynb
+**.ipynb
