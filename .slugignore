@@ -1,6 +1,0 @@
-# data folder
-/data
-
-# jupyter notebooks
-*.ipynb
-**.ipynb
