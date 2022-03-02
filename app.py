@@ -1,20 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
+# import model
 
 
 app=Flask(__name__)
 
 
 @app.route("/")
-def index():
-    return render_template('index.html')
-
-@app.route("/pred")
-def pred():
-
-
+# , method=["POST"]
+def prediction():
+    # if request.method=="POST":
+    #     prediction=
 
     return render_template('index.html')
-    # prediction=
+
 
 
 if __name__=="__main__":
