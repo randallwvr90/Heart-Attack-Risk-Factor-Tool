@@ -4,87 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title font face="Arial" size="20px" color="#FF7A59">Heart Attack Prediction</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title font face="Arial" size="20px" color="#FF7A59">Heart Disease Prediction</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 </head>
 
 <body>
     
   <div class="container-fluid">
-        <div class="jumbotron text-center" style="background-image:url(https://p4.wallpaperbetter.com/wallpaper/241/445/153/landscape-love-heart-4k-green-wallpaper-preview.jpg);background-size:100%; height:100%")>
-          <h1>Heart Attack Prediction</h1>
+        <div class="jumbotron text-center" style="background-image:url(https://p4.wallpaperbetter.com/wallpaper/241/445/153/landscape-love-heart-4k-green-wallpaper-preview.jpg);background-size:100%; height: 136%")>
+          <h1>Heart Disease Prediction</h1>
+
           
           <div class="row">
             <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1"style="font-size:24px;">condition 1</label>
+              <h3>
+                <p> Please select from the following conditions: </p>
+              </h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Patient's Gender: </h3>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="Gender" form="GetPrediction" value="M" checked>
+                <label class="form-check-label" for="Gender">Male </label>
+                <input class="form-check-input" type="radio" name="Gender" form="GetPrediction" value="F">
+                <label class="form-check-label" for="Gender">Female </label>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4">
+              <h3>Chest Pain Type:</h3>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2" style="font-size:24px;">condition 2</label>
+                <input class="form-check-input" type="radio" name="ChestPainType" form="GetPrediction" value="ASY" checked>
+                <label class="form-check-label" for="ChestPainType">Asymptomatic </label>
+                <input class="form-check-input" type="radio" name="ChestPainType" form="GetPrediction" value="NAP">
+                <label class="form-check-label" for="ChestPainType">Non-anginal Pain </label>
+                <input class="form-check-input" type="radio" name="ChestPainType" form="GetPrediction" value="ATA">
+                <label class="form-check-label" for="ChestPainType">Atypical Angina </label>
+                <input class="form-check-input" type="radio" name="ChestPainType" form="GetPrediction" value="TA">
+                <label class="form-check-label" for="ChestPainType">Typical Angina </label>
               </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Fasting Blood Sugar:</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="FastingBS" form="GetPrediction" value=0 checked>
+                <label class="form-check-label" for="FastingBS">Less than 120 mg/deciliter </label>
+                <input class="form-check-input" type="radio" name="FastingBS" form="GetPrediction" value=1>
+                <label class="form-check-label" for="FastingBS">Greater than 120 mg/deciliter </label>
+              </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Resting ECG:</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="RestingECG" form="GetPrediction" value="Normal" checked>
+                <label class="form-check-label" for="RestingECG">Normal Electrocardiogram </label>
+                  
+                <input class="form-check-input" type="radio" name="RestingECG" form="GetPrediction" value="LVH">
+                <label class="form-check-label" for="RestingECG">Left Ventricular Hypertrophy </label>
+
+                <input class="form-check-input" type="radio" name="RestingECG" form="GetPrediction" value="ST">
+                <label class="form-check-label" for="RestingECG">ST Wave Abnormality </label>
+              </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Angina Induced by Exercise:</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ExerciseAngina" form="GetPrediction" value="Y" checked>
+                <label class="form-check-label" for="ExerciseAngina"> Yes </label>
+                  
+                <input class="form-check-input" type="radio" name="ExerciseAngina" form="GetPrediction" value="N">
+                <label class="form-check-label" for="ExerciseAngina">No </label>
+              </div>
+
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4">
+              <h3>Peak Exercise ST Wave:</h3>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3" style="font-size:24px;">condition 3 </label>
+                <input class="form-check-input" type="radio" name="STslope" form="GetPrediction" value="Up" checked>
+                <label class="form-check-label" for="STslope">Upsloping </label>
+                  
+                <input class="form-check-input" type="radio" name="STslope" form="GetPrediction" value="Down">
+                <label class="form-check-label" for="STslope">Downsloping </label>
+
+                <input class="form-check-input" type="radio" name="STslope" form="GetPrediction" value="Flat">
+                <label class="form-check-label" for="STslope">Flat </label>
               </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Please suppy the following additional parameters:</h3>
+              <ul>
+                <form id="GetPrediction">
+                  <li>
+                    Patient's age: <input type="number" name="Age" placeholder="(put Age here)" min=0 required> 
+                  </li>
+                  <li>
+                    Resting blood pressure in mm HG: <input type="number" name="RestingBP" placeholder="(put RestingBP here)" min=0 required>
+                  </li>
+                  <li>
+                    Cholesterol in mg/deciliter: <input type="number" name="Cholesterol" placeholder="(put Cholesterol here)" min=0 required>
+                  </li>
+                  <li>
+                    Maximum heart rate in beats/minute: <input type="number" name="MaxHR" placeholder="(put MaxHR here)" min=0 required>
+                  </li>
+                  
+                  <!-- <input type="submit"> -->
+                </form>
+              </ul>
+              
+              
             </div>  
           </div>
 
           <div class="row">
             <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                <label class="form-check-label" for="inlineCheckbox4" style="font-size:24px;">condition 4 </label>
-              </div>
-            </div>  
+              <!-- <p><a class="btn btn-primary btn-lg" href="/pred" role="button">Predict</a></p> -->
+              <button style="margin-left: 20px;" id="predict-btn" type="submit" form="GetPrediction" formmethod="post" formaction="/pred" class="btn btn-primary btn-lg">Predict</button><br>
+              <h2><label style="margin-left: 40px  color #182761">Prediction Result: </label></h2>
+              <label style="margin-left:30px color #182161"> {{prediction}} </label>
+            </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                <label class="form-check-label" for="inlineCheckbox5" style="font-size:24px;">condition 5 </label>
-              </div>
-            </div>  
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <p><a class="btn btn-primary btn-lg" href="/pred" role="button">Predict</a></p>
-            </div>  
-          </div>
-
-          <p>
-            Prediction: {{prediction}}
-          </p>
 
         </div>
 
-        
-          
-  </div>
+        <footer class="footer navbar-fixed-bottom">
+          <div class="two-toned-footer-color"></div>
+          <p class="text-muted text-muted-footer text-center">
+            <b>&copy; Copyright Coding Bootcamp 2021</b>
+           <br> ATTENTION: This is for research and model practice ONLY!
+          </p>
+         </footer>
 
-  <footer class="footer navbar-fixed-bottom">
-    <div class="two-toned-footer-color"></div>
-    <p class="text-muted text-muted-footer text-center">
-      <b>&copy; Copyright Coding Bootcamp 2021</b>
-    </p>
-  </footer>
+   </div>
+
+   
+
+  
 
 </body>
-
-
 
 
 </html>

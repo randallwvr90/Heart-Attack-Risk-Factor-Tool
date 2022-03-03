@@ -1,17 +1,13 @@
-# This Flask app is still in development!!
-#
-# Done: it will load the saved model and scaler when the predict button is clicked and return a message back to the user
-#
-# Still to do: change the model from RFC to NN
-# Still to do: retrieve the user data from the index.html page before making prediction
+# This Flask app uses data input by the user to predict if they have heart disease or not.
+# The app requires a Random Forest Classifier and its scaler to have been previously saved into pickle files.
+# If those files do not exist, please create them using heart_attack_risk_rfc_model.ipynb before running this app.
 
 
 # External dependencies:
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, request
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
-import tensorflow as tf
 import pickle
 
 
@@ -20,10 +16,10 @@ app=Flask(__name__)
 
 
 # Define initial descriptive text:
-start_text = "Click the predict button."
+start_text = "Please complete the above information and then click the predict button."
 
 
-# Home (index) route:
+# Index route (the home/start page):
 @app.route("/")
 def index():
 
@@ -34,30 +30,30 @@ def index():
 
 
 # Heart disease prediction route:
-@app.route("/pred", methods=["GET", "POST"])
+@app.route("/pred", methods=["POST"])
 def predict():
 
     # Status message to terminal
     print("Prediction route activated.")
 
-    # Load the model and scaler from their external files:
-    model_folder = "static/best_model"
-    scaler_file = "static/best_nn_scaler.pkl"
-    loaded_model = tf.keras.models.load_model(model_folder)
+    # Load the model and scaler from their external folder/files:
+    model_file = "static/rfc_model.pkl"
+    scaler_file = "static/rfc_scaler.pkl"
+    loaded_model = pickle.load(open(model_file, "rb"))
     loaded_scaler = pickle.load(open(scaler_file, "rb"))
-    print(f"Model loaded from folder: {model_folder}")
+    print(f"Model loaded from file: {model_file}")
     print(f"Scaler loaded from file: {scaler_file}")
 
-    # Create column headers to match the ones in the one hot encoded and scaled "heart_df":
+    # Create column headers to match the ones used in the model's training dataset:
     column_headers = ["Age","RestingBP","Cholesterol","FastingBS","MaxHR","Oldpeak",
-                    "Sex_F","Sex_M",
+                    "Sex_F", "Sex_M",
                     "ChestPainType_ASY","ChestPainType_ATA","ChestPainType_NAP","ChestPainType_TA",
                     "RestingECG_LVH","RestingECG_Normal","RestingECG_ST",
-                    "ExerciseAngina_N","ExerciseAngina_Y",
+                    "ExerciseAngina_N", "ExerciseAngina_Y",
                     "ST_Slope_Down","ST_Slope_Flat","ST_Slope_Up"]
 
-    # Make some testing data for a fictitious patient:
-    # (ultimately this data should come from the input fields on index.html)
+    """
+    # Testing data to use if index.html is unavailable:
     Age = 65
     Sex = "M"
     ChestPainType = "ATA"
@@ -69,6 +65,22 @@ def predict():
     ExerciseAngina = "N"
     Oldpeak = 1.5
     ST_Slope = "Flat"                
+    """
+    # Get data from posted form:
+    if request.method != "POST":
+        return render_template("index.html", prediction="Error: Please try again.")
+    else:
+        Age = request.form.get("Age")
+        Sex = request.form.get("Gender")
+        ChestPainType = request.form.get("ChestPainType")
+        RestingBP = request.form.get("RestingBP")
+        Cholesterol = request.form.get("Cholesterol")
+        FastingBS = request.form.get("FastingBS")
+        RestingECG = request.form.get("RestingECG")
+        MaxHR = request.form.get("MaxHR")
+        ExerciseAngina = request.form.get("ExerciseAngina")
+        Oldpeak = 0.6
+        ST_Slope = request.form.get("STslope") 
 
     # Put the input data into a row:
     data_row = []
@@ -137,6 +149,7 @@ def predict():
         
     # Create a single row dataframe to pass as input to the model:
     input_data = pd.DataFrame([data_row], columns=column_headers)
+    print(input_data)
 
     # Scale the input data: 
     input_data_scaled = loaded_scaler.transform(input_data)
@@ -145,12 +158,12 @@ def predict():
     y = loaded_model.predict(input_data_scaled)
     print(y)
 
-    # Go back to the index route and execute index() function
+    # Go back to the index route and execute index() function:
     if y == 1:
         print("You are at risk for having a heart attack.")
-        return render_template("index.html", prediction="You are at rick for having a heart attack.")
+        return render_template("index.html", prediction="You are at risk for having a heart attack.")
     else:
-        print("You are not at risk for having a heart attack.")
+        print("You seem to have a healthy heart.")
         return render_template("index.html", prediction="You seem to have a healthy heart.")
 
  
