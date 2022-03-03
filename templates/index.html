@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title font face="Arial" size="20px" color="#FF7A59">Heart Attack Prediction</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 </head>
 
 <body>
     
   <div class="container-fluid">
-        <div class="jumbotron text-center" style="background-image:url(https://p4.wallpaperbetter.com/wallpaper/241/445/153/landscape-love-heart-4k-green-wallpaper-preview.jpg);background-size:100%; height:100%")>
+        <div class="jumbotron text-center" style="background-image:url(https://p4.wallpaperbetter.com/wallpaper/241/445/153/landscape-love-heart-4k-green-wallpaper-preview.jpg);background-size:100%; height: 136%")>
           <h1>Heart Attack Prediction</h1>
 
           
@@ -20,51 +21,120 @@
               <h3>
                 <p> Please check the conditions you currenctly have: </p>
               </h3>
+<<<<<<< Updated upstream
+=======
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Gender: </h3>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Male
+                </label>
+
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Female
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Chest Pain Type </h3>
+>>>>>>> Stashed changes
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1"style="font-size:24px;">condition 1</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineCheckbox1">Asymptomatic </label>
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2" style="font-size:24px;">condition 2</label>
+                <label class="form-check-label" for="inlineCheckbox2">Non_anginal Pain </label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">Atypical Angina </label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                <label class="form-check-label" for="inlineCheckbox4">Typical Angina </label>
+              </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>FastingBS</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Blood sugar was <120 mg/deciliter </label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Blood sugar was >120 mg/deciliter </label>
+              </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>RestingECG</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Normal Electrocardiogram </label>
+                  
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Left Ventricular Hypertrophy </label>
+
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">ST-T Wave Abnormality </label>
+              </div>
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>ExerciseAngina</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1"> Yes </label>
+                  
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">No </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>ST_Slope</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1"> Peak exercise ST wave was Upsloping </label>
+                  
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Downsloping </label>
+
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">Flat </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Heart Disease</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1"> Yes </label>
+                  
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">No </label>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3" style="font-size:24px;">condition 3 </label>
-              </div>
-            </div>  
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                <label class="form-check-label" for="inlineCheckbox4" style="font-size:24px;">condition 4 </label>
-              </div>
-            </div>  
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                <label class="form-check-label" for="inlineCheckbox5" style="font-size:24px;">condition 5 </label>
-              </div>
-            </div>  
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
+<<<<<<< Updated upstream
               <p><a class="btn btn-primary btn-lg" href="/" method="POST" role="button">Predict</a></p>
               <% if prediction%>
               <p>Your possible chance to have a heart attack is {{prediction}}</p>
@@ -72,12 +142,52 @@
             </div>  
           </div>
 
+=======
+              <h3>Please input numbers for following questions:</h3>
+              <ul>
+                <form>
+                  <li>
+                    Your age <input type=""number name="age" placeholder="Age"> 
+                  </li>
+                  <li>
+                    Resting blood pressure in mm HG <input type=""number name="RestingBP" placeholder="RestingBP">
+                  </li>
+                  <li>
+                    Cholesterol in mg/deciliter<input type=""number name="Cholesterol" placeholder="Cholesterol">
+                  </li>
+                  <li>
+                    Maximum heart rate in minute <input type=""number name="MaxHR" placeholder="MaxHR">
+                  </li>
+                  
+                  <!-- <input type="submit"> -->
+                </form>
+              </ul>
+              
+              
+            </div>  
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <!-- <p><a class="btn btn-primary btn-lg" href="/" role="button">Predict</a></p> -->
+              <button style="margin-left: 20px;" id="predict-btn" type="submit" class="btn btn-primary btn-lg">Predict</button><br>
+              <h2><label style="margin-left: 40px  color #182761">Prediction Result: </label></h2>
+              <label style="margin-left:30px color #182161"> {{prediction}} </label>
+            </div>
+          </div>
+
+>>>>>>> Stashed changes
         </div>
 
-        
-          
-  </div>
+        <footer class="footer navbar-fixed-bottom">
+          <div class="two-toned-footer-color"></div>
+          <p class="text-muted text-muted-footer text-center">
+            <b>&copy; Copyright Coding Bootcamp 2021</b>
+           <br> ATTENTION: This is for research and model practice ONLY!
+          </p>
+         </footer>
 
+<<<<<<< Updated upstream
   <footer class="footer navbar-fixed-bottom">
     <div class="two-toned-footer-color"></div>
     <p class="text-muted text-muted-footer text-center">
@@ -85,10 +195,15 @@
       ATTENTION: This is for research and model practice ONLY!
     </p>
   </footer>
+=======
+   </div>
+>>>>>>> Stashed changes
+
+   
+
+  
 
 </body>
-
-
 
 
 </html>
