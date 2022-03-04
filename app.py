@@ -160,7 +160,7 @@ def predict():
     y = loaded_model.predict(input_data_scaled)
 
     # Go back to the index route and execute index() function:
-    message = f"The likelihood of the patient having heart disease is {y[0][0]:.1f}%"
+    message = f"The likelihood of the patient having heart disease is {100 * y[0][0]:.1f}%"
     print(message)
     return render_template("prediction_page.html", prediction=message)
     
