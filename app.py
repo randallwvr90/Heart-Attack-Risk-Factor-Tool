@@ -9,7 +9,7 @@
 from flask import Flask, render_template, request
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
-import tensorflow-cpu as tf
+import tensorflow as tf
 import pickle
 
 
