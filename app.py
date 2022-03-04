@@ -1,8 +1,9 @@
-# This Flask app is still in development!!
-#
-# Done: it will load the prediction_page.html file on the user's device and get the form data when they click the button
-#
-# Still to do: get tensorflow to import correctly!!
+# This Flask app utilizes a Neural Network machine learning model to 
+# predict the likelihood that a patient is suffering from heart disease.
+# The model has already been trained and tested and saved to file: "best_model.h5".
+# When the "predict" button is pressed, the model will load and use the input data
+# from the user to make a prediction.
+
 
 
 # External dependencies:
@@ -21,13 +22,14 @@ app=Flask(__name__)
 start_text = "Please complete the above information and then click the predict button."
 
 
+# Index route (landing page):
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
 
-# Index route (the home/start page):
+# Patient input route (prediction page):
 @app.route("/start")
 def index():
 
@@ -36,7 +38,8 @@ def index():
 
     return render_template("prediction_page.html", prediction=start_text)
 
-# Heart disease prediction route:
+
+# Heart disease prediction route (makes the prediction):
 @app.route("/pred", methods=["POST"])
 def predict():
 
