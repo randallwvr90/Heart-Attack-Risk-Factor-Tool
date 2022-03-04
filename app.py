@@ -21,15 +21,20 @@ app=Flask(__name__)
 start_text = "Please complete the above information and then click the predict button."
 
 
-# Index route (the home/start page):
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
+
+# Index route (the home/start page):
+@app.route("/start")
 def index():
 
-    # Status message to terminal
+   # Status message to terminal
     print("Index route activated.")    
 
     return render_template("index.html", prediction=start_text)
-
 
 # Heart disease prediction route:
 @app.route("/pred", methods=["POST"])
