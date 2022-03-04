@@ -39,7 +39,7 @@ def predict():
     print("Prediction route activated.")
 
     # Load the model and scaler from their external folder/files:
-    model_folder = "static/best_model"
+    model_folder = "static/best_model.h5"
     scaler_file = "static/best_nn_scaler.pkl"
     loaded_model = tf.keras.models.load_model(model_folder)
     loaded_scaler = pickle.load(open(scaler_file, "rb"))
