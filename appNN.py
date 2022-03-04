@@ -1,13 +1,15 @@
-# This Flask app uses data input by the user to predict if they have heart disease or not.
-# The app requires a Random Forest Classifier and its scaler to have been previously saved into pickle files.
-# If those files do not exist, please create them using heart_attack_risk_rfc_model.ipynb before running this app.
+# This Flask app is still in development!!
+#
+# Done: it will load the index.html file on the user's device and get the form data when they click the button
+#
+# Still to do: get tensorflow to import correctly!!
 
 
 # External dependencies:
 from flask import Flask, render_template, request
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
+import tensorflow as tf
 import pickle
 
 
@@ -37,19 +39,19 @@ def predict():
     print("Prediction route activated.")
 
     # Load the model and scaler from their external folder/files:
-    model_file = "static/rfc_model.pkl"
-    scaler_file = "static/rfc_scaler.pkl"
-    loaded_model = pickle.load(open(model_file, "rb"))
+    model_folder = "static/best_model"
+    scaler_file = "static/best_nn_scaler.pkl"
+    loaded_model = tf.keras.models.load_model(model_folder)
     loaded_scaler = pickle.load(open(scaler_file, "rb"))
-    print(f"Model loaded from file: {model_file}")
+    print(f"Model loaded from folder: {model_folder}")
     print(f"Scaler loaded from file: {scaler_file}")
 
     # Create column headers to match the ones used in the model's training dataset:
     column_headers = ["Age","RestingBP","Cholesterol","FastingBS","MaxHR","Oldpeak",
-                    "Sex_F", "Sex_M",
+                    "Sex_M",
                     "ChestPainType_ASY","ChestPainType_ATA","ChestPainType_NAP","ChestPainType_TA",
                     "RestingECG_LVH","RestingECG_Normal","RestingECG_ST",
-                    "ExerciseAngina_N", "ExerciseAngina_Y",
+                    "ExerciseAngina_Y",
                     "ST_Slope_Down","ST_Slope_Flat","ST_Slope_Up"]
 
     """
@@ -79,7 +81,7 @@ def predict():
         RestingECG = request.form.get("RestingECG")
         MaxHR = request.form.get("MaxHR")
         ExerciseAngina = request.form.get("ExerciseAngina")
-        Oldpeak = 0.6
+        Oldpeak = 1.5
         ST_Slope = request.form.get("STslope") 
 
     # Put the input data into a row:
@@ -90,12 +92,10 @@ def predict():
     data_row.append(FastingBS)
     data_row.append(MaxHR)
     data_row.append(Oldpeak)
-    if Sex == "F":
+    if Sex == "M":
         data_row.append(1)
-        data_row.append(0)
     else:
         data_row.append(0)
-        data_row.append(1)
     if ChestPainType == "ASY":
         data_row.append(1)
         data_row.append(0)
@@ -128,12 +128,10 @@ def predict():
         data_row.append(0)
         data_row.append(0)
         data_row.append(1)
-    if ExerciseAngina == "N":
+    if ExerciseAngina == "Y":
         data_row.append(1)
-        data_row.append(0)
     else:
         data_row.append(0)
-        data_row.append(1)
     if ST_Slope == "Down":
         data_row.append(1)
         data_row.append(0)
@@ -149,22 +147,18 @@ def predict():
         
     # Create a single row dataframe to pass as input to the model:
     input_data = pd.DataFrame([data_row], columns=column_headers)
-    print(input_data)
 
     # Scale the input data: 
     input_data_scaled = loaded_scaler.transform(input_data)
 
     # Get prediction from model:
     y = loaded_model.predict(input_data_scaled)
-    print(y)
 
     # Go back to the index route and execute index() function:
-    if y == 1:
-        print("You are at risk for having a heart attack.")
-        return render_template("index.html", prediction="You are at risk for having a heart attack.")
-    else:
-        print("You seem to have a healthy heart.")
-        return render_template("index.html", prediction="You seem to have a healthy heart.")
+    message = f"The likelihood of the patient having heart disease is {y}"
+    print(message)
+    return render_template("index.html", prediction=message)
+    
 
  
 # Run the Flask app:
