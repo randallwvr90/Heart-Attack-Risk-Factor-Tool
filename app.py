@@ -1,6 +1,6 @@
 # This Flask app is still in development!!
 #
-# Done: it will load the index.html file on the user's device and get the form data when they click the button
+# Done: it will load the prediction_page.html file on the user's device and get the form data when they click the button
 #
 # Still to do: get tensorflow to import correctly!!
 
@@ -23,7 +23,7 @@ start_text = "Please complete the above information and then click the predict b
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("index.html")
 
 
 
@@ -34,7 +34,7 @@ def index():
    # Status message to terminal
     print("Index route activated.")    
 
-    return render_template("index.html", prediction=start_text)
+    return render_template("prediction_page.html", prediction=start_text)
 
 # Heart disease prediction route:
 @app.route("/pred", methods=["POST"])
@@ -60,7 +60,7 @@ def predict():
                     "ST_Slope_Down","ST_Slope_Flat","ST_Slope_Up"]
 
     """
-    # Testing data to use if index.html is unavailable:
+    # Testing data to use if prediction_page.html is unavailable:
     Age = 65
     Sex = "M"
     ChestPainType = "ATA"
@@ -75,7 +75,7 @@ def predict():
     """
     # Get data from posted form:
     if request.method != "POST":
-        return render_template("index.html", prediction="Error: Please try again.")
+        return render_template("prediction_page.html", prediction="Error: Please try again.")
     else:
         Age = request.form.get("Age")
         Sex = request.form.get("Gender")
@@ -162,7 +162,7 @@ def predict():
     # Go back to the index route and execute index() function:
     message = f"The likelihood of the patient having heart disease is {y}"
     print(message)
-    return render_template("index.html", prediction=message)
+    return render_template("prediction_page.html", prediction=message)
     
 
  
