@@ -11,7 +11,7 @@ Website where our application can be accessed:
 * https://bootcamp-project-4.herokuapp.com
 
 ## Data Sources
-Information on the data that we used. 
+Information on the data that we used:
 * https://www.kaggle.com/fedesoriano/heart-failure-prediction/version/1
 
 ## Repository Organization
