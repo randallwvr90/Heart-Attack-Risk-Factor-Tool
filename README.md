@@ -10,25 +10,28 @@
 * In this process, we will also attempt to determine the most significant risk factors - does cholesterol level matter more than age, for example.
 * Finally, we will create a web-based tool based on our model.
 
+## Project Deployment on Heroku
+Website where our application can be accessed:
+* https://bootcamp-project-4.herokuapp.com
+
 ## Data Sources
 Information on the data that we used. 
 * https://www.kaggle.com/fedesoriano/heart-failure-prediction - /data/heart.csv
 
 ## Repository Folders/Files
-* *Flask Application*
-	* app.py (flask application)
-	* *static*
-		* best_model.h5 (neural network model file)
-		* best_nn_scaler.pkl (data scaling file)
-		* style.css (style sheet)
-	* *templates*
-		* index.html (landing page)
-		* form_page.html (form input page)
-		* prediction_page.html (model output page)
-* *Heroku Setup Files*
-	* Procfile
-	* requirements.txt
-* *Model Investigation*
+* app.py (flask application)
+* Procfile (file needed for Heroku)
+* requirement.txt (file needed for Heroku)
+* Heart Disease Prediction_Machine Learning Integration.pdf
+* *static*
+	* best_model.h5 (neural network model file)
+	* best_nn_scaler.pkl (data scaling file)
+	* style.css (webpage style sheet)
+* *templates*
+	* index.html (landing page)
+	* form_page.html (form input page)
+	* prediction_page.html (model output page)
+* *model_investigation*
 	* heart_attack_risk_knn_model.ipynb (k-nearest neighbors investigation)
 	* heart_attack_risk_logistic.ipynb (logistical regression investigation)
 	* heart_attack_risk_rfc_model.ipynb (random forest investigation)
