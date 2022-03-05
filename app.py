@@ -25,26 +25,28 @@ start_text = "Please complete the above information and then click the predict b
 # Index route (landing page):
 @app.route("/")
 def home():
+
+    #Status message to terminal and display landing page:
+    print("Index page activated.")
     return render_template("index.html")
 
 
 
 # Patient input route (prediction page):
-@app.route("/start")
+@app.route("/form")
 def index():
 
-   # Status message to terminal
-    print("Index route activated.")    
-
-    return render_template("prediction_page.html", prediction=start_text)
+   # Status message to terminal and display prediction page:
+    print("Form page activated.")    
+    return render_template("form_page.html", message=start_text)
 
 
 # Heart disease prediction route (makes the prediction):
 @app.route("/pred", methods=["POST"])
 def predict():
 
-    # Status message to terminal
-    print("Prediction route activated.")
+    # Status message to terminal:
+    print("Model prediction initiated.")
 
     # Load the model and scaler from their external folder/files:
     model_folder = "static/best_model.h5"
@@ -78,7 +80,7 @@ def predict():
     """
     # Get data from posted form:
     if request.method != "POST":
-        return render_template("prediction_page.html", prediction="Error: Please try again.")
+        return render_template("prediction_page.html", message="Error: Please try again.")
     else:
         Age = request.form.get("Age")
         Sex = request.form.get("Gender")
@@ -89,7 +91,7 @@ def predict():
         RestingECG = request.form.get("RestingECG")
         MaxHR = request.form.get("MaxHR")
         ExerciseAngina = request.form.get("ExerciseAngina")
-        Oldpeak = 1.5
+        Oldpeak = request.form.get("Oldpeak")
         ST_Slope = request.form.get("STslope") 
 
     # Put the input data into a row:
@@ -162,12 +164,24 @@ def predict():
     # Get prediction from model:
     y = loaded_model.predict(input_data_scaled)
 
-    # Go back to the index route and execute index() function:
-    message = f"The likelihood of the patient having heart disease is {100 * y[0][0]:.1f}%"
-    print(message)
-    return render_template("prediction_page.html", prediction=message)
+    # Return the prediction result to the user:
+    result = f"The likelihood of the patient having heart disease is {100 * y[0][0]:.1f}%"
+    print(result)
+    message = "For a patient with the following parameters:"
+    return render_template("prediction_page.html", 
+                            message=message, prediction=result, 
+                            age=f"Age:  {Age}", gender=f"Gender:  {Sex}",
+                            paintype=f"Chest Pain Type:  {ChestPainType}",
+                            restBP=f"Resting Blood Pressure:  {RestingBP}",
+                            cholesterol=f"Cholesterol:  {Cholesterol}",
+                            bloodsugar=f"Fasting Blood Sugar:  {FastingBS}",
+                            ECG=f"Resting Electrocardiogram:  {RestingECG}",
+                            HRmax=f"Maximum Heart Rate:  {MaxHR}",
+                            exerciseangina=f"Angina INduced by Exercise:  {ExerciseAngina}",
+                            STdepression=f"ST Wave Depression:  {Oldpeak}",
+                            STslope=f"ST Wave Slope:  {ST_Slope}")
     
-
+    
  
 # Run the Flask app:
 if __name__=="__main__":
