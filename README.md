@@ -3,6 +3,7 @@
 ## Table of Contents
 * [Disclaimer](#disclaimer)
 * [Background](#background)
+* [ML Prediction Project - Answering a Question](#ml-prediction-project---answering-a-question)
 * [Models](#models)
 * [Tools](#tools)
 * [Modeling - lessons learned](#modeling---lessons-learned)
@@ -18,15 +19,33 @@ Any use other than for fun and interest in data analytics runs counter to our pu
 This project is simply a fun and interesting application of data analytics and is meant as an exercise and portfolio project for those of us who worked on it. We hope you enjoy taking a look and trying it out - only for fun! 
 
 ## Background
-* add "proposal" info:
-	* use info below but write a new section and delete these bullet points
-	* We will use heart attack risk factor data
-	* We will create a machine learning model that can predict (to some extent) heart attack risk based on risk factors. We will use several different machine learning techniques and pick the most accurate technique to use for our model.
-	* In this process, we will also attempt to determine the most significant risk factors - does cholesterol level matter more than age, for example.
-	* Finally, we will create a web-based tool based on our model.
-	* heart attack background info
-* Heart attack background info
-	* flesh out
+* Heart Disease: What is it?
+	* This term refers to a range of conditions that involve narrow or blocked blood vessels and can lead to a heart attack. Conditions under this umbrella include:
+		* blood vessel diseases
+		* coronary artery disease
+		* heart rhythm problems (arrhythmias)
+		* congenital heart defects
+	* Heart disease is the leading cause of death globally. It is estimated that 17.9 million people died from heart disease in 2019, representing 32% of global deaths. 85% of these deaths were due to heart attack and stroke. 
+* Doctors often use a non-invasive, basic form of screening to identify patients likely to develop heart disease in the near future. 11 health attributes are commonly used, and the data are collected during an exercise electrocardiogram (ECG), also known as a "stress test". The 11 attributes are:
+	* Age
+	* Sex
+	* Presence of Exercise-Induced Angina
+	* Chest Pain Type - typical angina, atypical angina, non-angina pain, or asymptomatic
+	* Resting Blood Pressure
+	* Cholesterol
+	* Fasting Blood Sugar
+	* Resting Electrocardiogram (ECG) Results
+	* Max Heart Rate Achieved
+	* "Old Peak" - a feature of the ECG waveform
+	* "ST Slope" - a feature of the ECG waveform
+
+## ML Prediction Project - Answering a Question
+Our team attempted to answer the question: Is it possible to train a machine learning (ML) model to reliably assign a set of inputs to one of two buckets: heart disease present, or heart disease not present? And how reliably could the ML model do this task? Again, this is simply a data analysis exercise - [SEE DISCLAIMER!](#disclaimer)
+The second question we wanted to answer: Can the ML model we create be used to find the health attributes most correlated with heart disease risk and which of the eleven attributes are they? For example, does cholesterol level matter more than age? 
+
+To answer these questions, we used several types of ML model and selected from among them the one we determined did the best job at predicting risk for a set of health attributes. See [Models](#models) for information on the models we used and on our evaluation criteria. 
+
+Finally, we will deploy our model as a web-based tool where users can play with different health attribute values and see the model's risk prediction. 
 
 ## Models
 * Neural Network
