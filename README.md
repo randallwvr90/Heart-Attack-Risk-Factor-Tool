@@ -12,7 +12,9 @@
 * [Repository Organization](#repository-organization)
 
 ## Disclaimer!
-This product IS ABSOLUTELY NOT meant for use in a medical or clinical or diagnostic way! DO NOT use this tool or the website for ANY medical or real-world reason! All mentions of the accuracy of our model only refer to the model's ability to predict which "bucket" a set of inputs would land in and how close the model gets to the existing data set. We have no way to know how or whether this would translate to a real-life situation. Furthermore, we don't have the data for that! 
+This product IS ABSOLUTELY NOT meant for use in a medical or clinical or diagnostic way! DO NOT use this tool or the website for ANY medical or real-world reason!
+
+All mentions of the accuracy of our model refer ONLY to the model's ability to match new inputs to our [Existing Data Set](#data). We have NO IDEA and NO WAY TO FIND OUT how these predictions would compare to "real life"!
 
 Any use other than for fun and interest in data analytics runs counter to our purpose and our wishes so JUST DON'T DO IT. 
 
