@@ -1,4 +1,4 @@
-# Machine Learning Project - Team Squirtle
+# Machine Learning Project
 
 ## Project Proposal
 * We will use heart attack risk factor data
