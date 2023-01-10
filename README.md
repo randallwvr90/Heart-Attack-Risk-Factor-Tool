@@ -39,6 +39,15 @@
 	* models - evaluation and selection
 	* flesh out
 
+## Tools
+* Kaggle - data source
+* Jupyter Notebook
+	* data preprocessing
+	* training and testing of each model
+	* model evaluation (with an eye to selection)
+* Flask - how do I say this?
+* Heroku - web hosting
+
 ## Modeling - lessons learned
 * flesh out
 
