@@ -1,7 +1,7 @@
-# jupyter notebook stuff
+# jupyter notebook
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
-# mac stuff
+# mac specific
 .DS_Store
 **/.DS_Store
