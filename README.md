@@ -6,7 +6,6 @@
 * [ML Prediction Project - Answering a Question](#ml-prediction-project---answering-a-question)
 * [Models](#models)
 * [Tools](#tools)
-* [Modeling - lessons learned](#modeling---lessons-learned)
 * [Web Deployment](#project-deployment-on-heroku)
 * [Data](#data)
 * [Repository Organization](#repository-organization)
@@ -50,47 +49,36 @@ To answer these questions, we used several types of ML model and selected from a
 Finally, we will deploy our model as a web-based tool where users can play with different health attribute values and see the model's risk prediction. 
 
 ## Models
-* Neural Network
-	* flesh out
-* Nerual Network - Keras tuned
-	* flesh out
+
+We created, trained, and tested several types of ML model and selected from among them. The list of models we tried is below. 
+* Neural Network - Keras-tuned - this is the model we selected based on our selection criteria. 
+* Nerual Network 
 * Random Forest
-	* flesh out
 * Logistic Regression
-	* flesh out
 * K-Nearest Neighbors
-	* flesh out 
-* Model selection
-	* criteria (refer to lessons learned!!)
-	* models - evaluation and selection
-	* flesh out
 
 ## Tools
 * Kaggle - data source
 * Jupyter Notebook
 	* data preprocessing
-	* training and testing of each model
+	* ML model development
+	* model training and testing
 	* model evaluation (with an eye to selection)
-* Flask - how do I say this?
+* Tensorflow Python Library
+	* ML model development
+* SKLearn Python Library
+	* model training and testing
+* Flask - web development
 * Heroku - web hosting
-
-## Modeling - lessons learned
-* flesh out
 
 ## Project Deployment on Heroku
 Website where our application can be accessed:
 * https://bootcamp-project-4.herokuapp.com
 
 ## Data
-* the data set
-	* flesh out
-* Something about cleaning
-	* flesh out
-* Data Sources 
-	* https://www.kaggle.com/fedesoriano/heart-failure-prediction/version/1
+Data source: https://www.kaggle.com/fedesoriano/heart-failure-prediction/version/1
 
 ## Repository Organization
-	- do we need this?
 * app.py (flask application)
 * Procfile (file needed for Heroku)
 * requirement.txt (file needed for Heroku)
