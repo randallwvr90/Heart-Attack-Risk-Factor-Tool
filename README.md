@@ -1,14 +1,18 @@
 # Heart-Attack-Risk-Factor-Tool
 
 ## Table of Contents
+* [Web Hosting Note](#web-hosting-note)
 * [Disclaimer](#disclaimer)
 * [Background](#background)
 * [ML Prediction Project - Answering a Question](#ml-prediction-project---answering-a-question)
 * [Models](#models)
 * [Tools](#tools)
-* [Web Deployment](#project-deployment-on-heroku)
+* [Web Deployment](#web-deployment)
 * [Data](#data)
 * [Repository Organization](#repository-organization)
+
+## Web Hosting Note
+We are currently selecting a new web hosting service for our tool! The machine learning back end is large enough to preclude us from the free services we have found so far. Thank you for your patience - this is a personal project for us so we want to keep our costs as low as possible. In the meantime, if you would like to try the tool, please clone this repo and run app.py locally!
 
 ## Disclaimer!
 This product IS ABSOLUTELY NOT meant for use in a medical or clinical or diagnostic way! DO NOT use this tool or the website for ANY medical or real-world reason!
@@ -71,9 +75,8 @@ We created, trained, and tested several types of ML model and selected from amon
 * Flask - web development
 * Heroku - web hosting
 
-## Project Deployment on Heroku
-Website where our application can be accessed:
-* https://bootcamp-project-4.herokuapp.com
+## Web Deployment
+We are in the process of finding a hosting service - see [the note above](#web-hosting-note). Thank you for your patience!
 
 ## Data
 Data source: https://www.kaggle.com/fedesoriano/heart-failure-prediction/version/1
